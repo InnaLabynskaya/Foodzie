@@ -13,9 +13,11 @@
 		9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C472694D3D400C944D1 /* Foodzie.xcdatamodeld */; };
 		9D8A4C4B2694D3D600C944D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A4C4A2694D3D600C944D1 /* Assets.xcassets */; };
 		9D8A4C4E2694D3D600C944D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A4C4C2694D3D600C944D1 /* LaunchScreen.storyboard */; };
+		F8DAA7BE1A66880083881A16 /* Pods_Foodzie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodzie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A4C3B2694D3D400C944D1 /* Foodzie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodzie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8A4C422694D3D400C944D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		9D8A4C4A2694D3D600C944D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D8A4C4D2694D3D600C944D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D8A4C4F2694D3D600C944D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1FB12FCB61A246808410C97 /* Pods-Foodzie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodzie.release.xcconfig"; path = "Target Support Files/Pods-Foodzie/Pods-Foodzie.release.xcconfig"; sourceTree = "<group>"; };
+		FAA185741FD1403C159A65BE /* Pods-Foodzie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodzie.debug.xcconfig"; path = "Target Support Files/Pods-Foodzie/Pods-Foodzie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8DAA7BE1A66880083881A16 /* Pods_Foodzie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C9B72DE120C7D2154FD902D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAA185741FD1403C159A65BE /* Pods-Foodzie.debug.xcconfig */,
+				F1FB12FCB61A246808410C97 /* Pods-Foodzie.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9D8A4C322694D3D400C944D1 = {
 			isa = PBXGroup;
 			children = (
 				9D8A4C3D2694D3D400C944D1 /* Foodzie */,
 				9D8A4C3C2694D3D400C944D1 /* Products */,
+				8C9B72DE120C7D2154FD902D /* Pods */,
+				EBA1CE9103FCF8BCEBB918C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,14 @@
 			path = Foodzie;
 			sourceTree = "<group>";
 		};
+		EBA1CE9103FCF8BCEBB918C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D8A4C522694D3D600C944D1 /* Build configuration list for PBXNativeTarget "Foodzie" */;
 			buildPhases = (
+				C9D91284FC0055252662F5F7 /* [CP] Check Pods Manifest.lock */,
 				9D8A4C372694D3D400C944D1 /* Sources */,
 				9D8A4C382694D3D400C944D1 /* Frameworks */,
 				9D8A4C392694D3D400C944D1 /* Resources */,
+				44EA8C24A1FE9BFEEFF1F50D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44EA8C24A1FE9BFEEFF1F50D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foodzie/Pods-Foodzie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foodzie/Pods-Foodzie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foodzie/Pods-Foodzie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9D91284FC0055252662F5F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Foodzie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D8A4C372694D3D400C944D1 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		9D8A4C532694D3D600C944D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAA185741FD1403C159A65BE /* Pods-Foodzie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		9D8A4C542694D3D600C944D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1FB12FCB61A246808410C97 /* Pods-Foodzie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

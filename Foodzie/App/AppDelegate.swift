@@ -11,9 +11,13 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    let assembler = AppAssembler()
+    var router: Router!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        router = Router(window: UIWindow(frame: UIScreen.main.bounds),
+                        resolver: assembler.resolver)
+        router.start()
         return true
     }
 

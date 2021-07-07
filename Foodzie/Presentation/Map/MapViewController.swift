@@ -22,6 +22,7 @@ class MapViewController: UIViewController {
     private func setupMap() {
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 14.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        mapView.delegate = self
         self.mapView = mapView
         view.addSubview(mapView)
     }
@@ -43,3 +44,8 @@ class MapViewController: UIViewController {
     }
 }
 
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        viewModel.update(location: Location(long: position.target.longitude, lat: position.target.latitude))
+    }
+}

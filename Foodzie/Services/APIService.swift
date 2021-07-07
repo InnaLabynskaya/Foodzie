@@ -11,8 +11,8 @@ import CoreLocation
 protocol APIServiceProtocol {
     func fetchSearchPlaces(location: Location,
                            categories: String,
-                           maxLocations:Int,
-                           completion: @escaping (Result<[Place], Error>) -> Void)
+                           maxLocations: Int,
+                           completion: @escaping (Result<[Place], Error>) -> Void) -> Cancelable
 }
 
 class ArcgisAPIService: APIServiceProtocol {
@@ -26,8 +26,8 @@ class ArcgisAPIService: APIServiceProtocol {
 
     func fetchSearchPlaces(location: Location,
                            categories: String,
-                           maxLocations:Int,
-                           completion: @escaping (Result<[Place], Error>) -> Void) {
+                           maxLocations: Int,
+                           completion: @escaping (Result<[Place], Error>) -> Void) -> Cancelable {
         var components = URLComponents(url: root.appendingPathComponent("findAddressCandidates"), resolvingAgainstBaseURL: false)
         components?.queryItems = [
             URLQueryItem(name: "f", value: "json"),
@@ -40,15 +40,19 @@ class ArcgisAPIService: APIServiceProtocol {
         
         guard let request = components?.url.map({ URLRequest(url:$0) }) else {
             completion(.failure(Errors.badRequest))
-            return
+            return EmptyCancelable()
         }
-        network.loadData(with: request, completion: { (result: Result<SearchPlaceResponse, Error>) in
+        return network.loadData(with: request, completion: { (result: Result<SearchPlaceResponse, Error>) in
             let response = result.map { response in response.candidates.map(Place.init(response:)) }
             DispatchQueue.main.async {
                 completion(response)
             }
         })
     }
+}
+
+struct EmptyCancelable: Cancelable {
+    func cancel() {}
 }
 
 private struct SearchPlaceResponse: Codable {

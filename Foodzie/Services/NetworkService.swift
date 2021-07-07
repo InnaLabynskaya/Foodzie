@@ -7,13 +7,17 @@
 
 import Foundation
 
+protocol Cancelable {
+    func cancel()
+}
+
 protocol NetworkServiceProtocol {
-    func loadData<T: Codable>(with request: URLRequest, completion: @escaping (Result<T, Error>) -> Void)
+    func loadData<T: Codable>(with request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> Cancelable
 }
 
 extension URLSession: NetworkServiceProtocol {
-    func loadData<T: Codable>(with request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
-        self.dataTask(with: request) { (data, response, error) in
+    func loadData<T: Codable>(with request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> Cancelable {
+        let task = dataTask(with: request) { (data, response, error) in
             guard let data = data, let response = response as? HTTPURLResponse else {
                 completion(.failure(error ?? Errors.unknownNetworkError))
                 return
@@ -29,7 +33,12 @@ extension URLSession: NetworkServiceProtocol {
             } catch {
                 completion(.failure(error))
             }
-        }.resume()
+        }
+        task.resume()
+        return task
     }
 
+}
+
+extension URLSessionTask: Cancelable {
 }

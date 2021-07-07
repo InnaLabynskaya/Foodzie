@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol MapViewModelProtocol {
+protocol MapViewModelProtocol: AnyObject {
+    func fetchValues()
     var onPlacesUpdate: Callback<[Place]>? {get set}
 }
 
@@ -18,10 +19,13 @@ class MapViewModel: MapViewModelProtocol {
     
     init(api: APIServiceProtocol) {
         self.api = api
-        api.fetchSearchPlaces(location: Location(long: 0, lat: 0),
+    }
+    
+    func fetchValues() {
+        api.fetchSearchPlaces(location: Location(long: 151.20, lat: -33.86),
                               categories: "Food",
-                              maxLocations: 20) { (result) in
-            print(result)
+                              maxLocations: 20) { [weak self] (result) in
+            _ = result.map {self?.onPlacesUpdate?($0)}
         }
     }
     

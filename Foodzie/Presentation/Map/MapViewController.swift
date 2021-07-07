@@ -11,16 +11,12 @@ import GoogleMaps
 
 class MapViewController: UIViewController {
     var mapView: GMSMapView!
-    var viewModel: MapViewModelProtocol! {
-        didSet{
-            bind()
-        }
-    }
+    var viewModel: MapViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
-        viewModel.fetchValues()
+        bind()
     }
     
     private func setupMap() {
@@ -46,3 +42,4 @@ class MapViewController: UIViewController {
         }
     }
 }
+

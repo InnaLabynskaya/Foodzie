@@ -28,12 +28,15 @@ class Router {
     
     private func resetStack() {
         let viewModel = resolver.resolve(MapViewModelProtocol.self, argument: self)!
-        window.rootViewController = resolver.resolve(MapViewController.self, argument: viewModel)!
+        let viewController = resolver.resolve(MapViewController.self, argument: viewModel)!
+        window.rootViewController = viewController
         window.makeKeyAndVisible()
     }
     
     func navigate(to place: Place) {
-        print("\(#function) \(place)")
+        let viewModel = resolver.resolve(PlaceViewModelProtocol.self, argument: place)!
+        let viewController = resolver.resolve(PlaceViewController.self, argument: viewModel)!
+        window.topMostViewController?.present(viewController, animated: true, completion: nil)
     }
     
 }

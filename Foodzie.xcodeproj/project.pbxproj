@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0C7B76269618FD00D2EB92 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B75269618FD00D2EB92 /* PlaceViewController.swift */; };
+		9D0C7B7A2696193200D2EB92 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B792696193200D2EB92 /* PlaceViewModel.swift */; };
+		9D0C7B7E26961A1700D2EB92 /* PlaceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B7D26961A1700D2EB92 /* PlaceAssembly.swift */; };
+		9D0C7B8126961A7500D2EB92 /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0C7B8026961A7500D2EB92 /* PlaceViewController.xib */; };
+		9D0C7B8526961D0000D2EB92 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B8426961D0000D2EB92 /* UIWindow.swift */; };
 		9D429696269609FF0063E6EA /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D429695269609FF0063E6EA /* Callbacks.swift */; };
 		9D8A4C3F2694D3D400C944D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */; };
 		9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C472694D3D400C944D1 /* Foodzie.xcdatamodeld */; };
@@ -16,7 +21,7 @@
 		9D8A4C642694E93800C944D1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C632694E93800C944D1 /* MapViewModel.swift */; };
 		9D8A4C682694E95E00C944D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C672694E95E00C944D1 /* MapViewController.swift */; };
 		9DCCEED22694ED6600BCCF3D /* MapAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEED12694ED6600BCCF3D /* MapAssembly.swift */; };
-		9DCCEEDA2694EF8000BCCF3D /* UIViewController+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEED92694EF8000BCCF3D /* UIViewController+Nib.swift */; };
+		9DCCEEDA2694EF8000BCCF3D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEED92694EF8000BCCF3D /* UIViewController.swift */; };
 		9DCCEEDF2694F1A700BCCF3D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DCCEEDE2694F1A700BCCF3D /* MapViewController.xib */; };
 		9DCCEEE22694F4AC00BCCF3D /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEEE12694F4AC00BCCF3D /* AppAssembler.swift */; };
 		9DCCEEFA2695CD1E00BCCF3D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEEF92695CD1E00BCCF3D /* APIService.swift */; };
@@ -29,6 +34,11 @@
 
 /* Begin PBXFileReference section */
 		5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodzie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0C7B75269618FD00D2EB92 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		9D0C7B792696193200D2EB92 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		9D0C7B7D26961A1700D2EB92 /* PlaceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAssembly.swift; sourceTree = "<group>"; };
+		9D0C7B8026961A7500D2EB92 /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		9D0C7B8426961D0000D2EB92 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		9D429695269609FF0063E6EA /* Callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callbacks.swift; sourceTree = "<group>"; };
 		9D8A4C3B2694D3D400C944D1 /* Foodzie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodzie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +50,7 @@
 		9D8A4C632694E93800C944D1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		9D8A4C672694E95E00C944D1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9DCCEED12694ED6600BCCF3D /* MapAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAssembly.swift; sourceTree = "<group>"; };
-		9DCCEED92694EF8000BCCF3D /* UIViewController+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nib.swift"; sourceTree = "<group>"; };
+		9DCCEED92694EF8000BCCF3D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9DCCEEDE2694F1A700BCCF3D /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		9DCCEEE12694F4AC00BCCF3D /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		9DCCEEF92695CD1E00BCCF3D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -71,6 +81,17 @@
 				F1FB12FCB61A246808410C97 /* Pods-Foodzie.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D0C7B74269618EC00D2EB92 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				9D0C7B792696193200D2EB92 /* PlaceViewModel.swift */,
+				9D0C7B75269618FD00D2EB92 /* PlaceViewController.swift */,
+				9D0C7B7D26961A1700D2EB92 /* PlaceAssembly.swift */,
+				9D0C7B8026961A7500D2EB92 /* PlaceViewController.xib */,
+			);
+			path = Place;
 			sourceTree = "<group>";
 		};
 		9D429694269609CE0063E6EA /* Utilities */ = {
@@ -118,6 +139,7 @@
 		9D8A4C612694E8F400C944D1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9D0C7B74269618EC00D2EB92 /* Place */,
 				9D8A4C622694E92500C944D1 /* Map */,
 			);
 			path = Presentation;
@@ -157,7 +179,8 @@
 		9DCCEED42694EDD300BCCF3D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9DCCEED92694EF8000BCCF3D /* UIViewController+Nib.swift */,
+				9DCCEED92694EF8000BCCF3D /* UIViewController.swift */,
+				9D0C7B8426961D0000D2EB92 /* UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0C7B8126961A7500D2EB92 /* PlaceViewController.xib in Resources */,
 				9D8A4C4E2694D3D600C944D1 /* LaunchScreen.storyboard in Resources */,
 				9DCCEEDF2694F1A700BCCF3D /* MapViewController.xib in Resources */,
 				9D8A4C4B2694D3D600C944D1 /* Assets.xcassets in Resources */,
@@ -320,14 +344,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0C7B7A2696193200D2EB92 /* PlaceViewModel.swift in Sources */,
 				9DCCEEE22694F4AC00BCCF3D /* AppAssembler.swift in Sources */,
 				9DCCEF0F2695DF2400BCCF3D /* Place.swift in Sources */,
 				9D429696269609FF0063E6EA /* Callbacks.swift in Sources */,
+				9D0C7B76269618FD00D2EB92 /* PlaceViewController.swift in Sources */,
 				9DCCEED22694ED6600BCCF3D /* MapAssembly.swift in Sources */,
 				9D8A4C5E2694E7B800C944D1 /* Router.swift in Sources */,
 				9D8A4C682694E95E00C944D1 /* MapViewController.swift in Sources */,
-				9DCCEEDA2694EF8000BCCF3D /* UIViewController+Nib.swift in Sources */,
+				9DCCEEDA2694EF8000BCCF3D /* UIViewController.swift in Sources */,
+				9D0C7B8526961D0000D2EB92 /* UIWindow.swift in Sources */,
 				9D8A4C642694E93800C944D1 /* MapViewModel.swift in Sources */,
+				9D0C7B7E26961A1700D2EB92 /* PlaceAssembly.swift in Sources */,
 				9DCCEF022695CEEB00BCCF3D /* Errors.swift in Sources */,
 				9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */,
 				9DCCEEFA2695CD1E00BCCF3D /* APIService.swift in Sources */,

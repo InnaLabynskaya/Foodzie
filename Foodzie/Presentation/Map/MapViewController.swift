@@ -10,7 +10,11 @@ import UIKit
 import GoogleMaps
 
 class MapViewController: UIViewController {
-    var viewModel: MapViewModelProtocol!
+    var viewModel: MapViewModelProtocol! {
+        didSet {
+            bind()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +25,9 @@ class MapViewController: UIViewController {
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 14.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         self.view.addSubview(mapView)
+    }
+    
+    private func bind() {
+        
     }
 }

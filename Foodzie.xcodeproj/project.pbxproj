@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D429696269609FF0063E6EA /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D429695269609FF0063E6EA /* Callbacks.swift */; };
 		9D8A4C3F2694D3D400C944D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */; };
 		9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C472694D3D400C944D1 /* Foodzie.xcdatamodeld */; };
 		9D8A4C4B2694D3D600C944D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A4C4A2694D3D600C944D1 /* Assets.xcassets */; };
@@ -18,11 +19,17 @@
 		9DCCEEDA2694EF8000BCCF3D /* UIViewController+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEED92694EF8000BCCF3D /* UIViewController+Nib.swift */; };
 		9DCCEEDF2694F1A700BCCF3D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DCCEEDE2694F1A700BCCF3D /* MapViewController.xib */; };
 		9DCCEEE22694F4AC00BCCF3D /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEEE12694F4AC00BCCF3D /* AppAssembler.swift */; };
+		9DCCEEFA2695CD1E00BCCF3D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEEF92695CD1E00BCCF3D /* APIService.swift */; };
+		9DCCEF022695CEEB00BCCF3D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEF012695CEEB00BCCF3D /* Errors.swift */; };
+		9DCCEF052695D94C00BCCF3D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEF042695D94C00BCCF3D /* NetworkService.swift */; };
+		9DCCEF092695D9F000BCCF3D /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEF082695D9F000BCCF3D /* ServiceAssembly.swift */; };
+		9DCCEF0F2695DF2400BCCF3D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCEF0E2695DF2400BCCF3D /* Place.swift */; };
 		F8DAA7BE1A66880083881A16 /* Pods_Foodzie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodzie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D429695269609FF0063E6EA /* Callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callbacks.swift; sourceTree = "<group>"; };
 		9D8A4C3B2694D3D400C944D1 /* Foodzie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodzie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8A4C482694D3D400C944D1 /* Foodzie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foodzie.xcdatamodel; sourceTree = "<group>"; };
@@ -36,6 +43,11 @@
 		9DCCEED92694EF8000BCCF3D /* UIViewController+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nib.swift"; sourceTree = "<group>"; };
 		9DCCEEDE2694F1A700BCCF3D /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		9DCCEEE12694F4AC00BCCF3D /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
+		9DCCEEF92695CD1E00BCCF3D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9DCCEF012695CEEB00BCCF3D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		9DCCEF042695D94C00BCCF3D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9DCCEF082695D9F000BCCF3D /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		9DCCEF0E2695DF2400BCCF3D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F1FB12FCB61A246808410C97 /* Pods-Foodzie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodzie.release.xcconfig"; path = "Target Support Files/Pods-Foodzie/Pods-Foodzie.release.xcconfig"; sourceTree = "<group>"; };
 		FAA185741FD1403C159A65BE /* Pods-Foodzie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodzie.debug.xcconfig"; path = "Target Support Files/Pods-Foodzie/Pods-Foodzie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +73,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D429694269609CE0063E6EA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9DCCEF012695CEEB00BCCF3D /* Errors.swift */,
+				9D429695269609FF0063E6EA /* Callbacks.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		9D8A4C322694D3D400C944D1 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				9D8A4C6B2694E9FF00C944D1 /* App */,
+				9DCCEEF82695CD0A00BCCF3D /* Services */,
+				9DCCEF0C2695DAE100BCCF3D /* Models */,
 				9D8A4C612694E8F400C944D1 /* Presentation */,
+				9D429694269609CE0063E6EA /* Utilities */,
 				9DCCEED42694EDD300BCCF3D /* Extensions */,
 				9D8A4C6C2694EA5400C944D1 /* Resources */,
 				9D8A4C472694D3D400C944D1 /* Foodzie.xcdatamodeld */,
@@ -136,6 +160,24 @@
 				9DCCEED92694EF8000BCCF3D /* UIViewController+Nib.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9DCCEEF82695CD0A00BCCF3D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9DCCEF082695D9F000BCCF3D /* ServiceAssembly.swift */,
+				9DCCEEF92695CD1E00BCCF3D /* APIService.swift */,
+				9DCCEF042695D94C00BCCF3D /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9DCCEF0C2695DAE100BCCF3D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DCCEF0E2695DF2400BCCF3D /* Place.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		EBA1CE9103FCF8BCEBB918C3 /* Frameworks */ = {
@@ -279,12 +321,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DCCEEE22694F4AC00BCCF3D /* AppAssembler.swift in Sources */,
+				9DCCEF0F2695DF2400BCCF3D /* Place.swift in Sources */,
+				9D429696269609FF0063E6EA /* Callbacks.swift in Sources */,
 				9DCCEED22694ED6600BCCF3D /* MapAssembly.swift in Sources */,
 				9D8A4C5E2694E7B800C944D1 /* Router.swift in Sources */,
 				9D8A4C682694E95E00C944D1 /* MapViewController.swift in Sources */,
 				9DCCEEDA2694EF8000BCCF3D /* UIViewController+Nib.swift in Sources */,
 				9D8A4C642694E93800C944D1 /* MapViewModel.swift in Sources */,
+				9DCCEF022695CEEB00BCCF3D /* Errors.swift in Sources */,
 				9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */,
+				9DCCEEFA2695CD1E00BCCF3D /* APIService.swift in Sources */,
+				9DCCEF092695D9F000BCCF3D /* ServiceAssembly.swift in Sources */,
+				9DCCEF052695D94C00BCCF3D /* NetworkService.swift in Sources */,
 				9D8A4C3F2694D3D400C944D1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

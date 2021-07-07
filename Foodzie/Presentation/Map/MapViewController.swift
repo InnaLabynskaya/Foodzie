@@ -19,12 +19,17 @@ class MapViewController: UIViewController {
         bind()
     }
     
+    @IBAction func onListTap(_ sender: Any) {
+        viewModel.showList()
+    }
+    
     private func setupMap() {
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 14.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mapView.delegate = self
         self.mapView = mapView
         view.addSubview(mapView)
+        view.sendSubviewToBack(mapView)
     }
     
     private func bind() {

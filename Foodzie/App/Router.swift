@@ -33,9 +33,15 @@ class Router {
         window.makeKeyAndVisible()
     }
     
-    func navigate(to place: Place) {
+    func navigateTo(place: Place) {
         let viewModel = resolver.resolve(PlaceViewModelProtocol.self, argument: place)!
         let viewController = resolver.resolve(PlaceViewController.self, argument: viewModel)!
+        window.topMostViewController?.present(viewController, animated: true, completion: nil)
+    }
+    
+    func navigateTo(list places: [Place]) {
+        let viewModel = resolver.resolve(ListViewModelProtocol.self, arguments: places, self)!
+        let viewController = resolver.resolve(ListViewController.self, argument: viewModel)!
         window.topMostViewController?.present(viewController, animated: true, completion: nil)
     }
     

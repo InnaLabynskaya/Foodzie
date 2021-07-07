@@ -12,7 +12,8 @@ class AppAssembler {
     let assembler = Assembler([
         ServiceAssembly(),
         MapAssembly(),
-        PlaceAssembly()
+        PlaceAssembly(),
+        ListAssembly()
     ])
     
     var resolver: Resolver {

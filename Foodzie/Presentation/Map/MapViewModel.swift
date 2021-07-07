@@ -10,6 +10,7 @@ import Foundation
 protocol MapViewModelProtocol: AnyObject {
     func update(location: Location)
     func select(place: Place)
+    func showList()
     var onPlacesUpdate: Callback<[Place]>? {get set}
 }
 
@@ -48,6 +49,9 @@ class MapViewModel: MapViewModelProtocol {
     }
     
     func select(place: Place) {
-        router.navigate(to: place)
+        router.navigateTo(place: place)
+    }
+    func showList() {
+        router.navigateTo(list: places)
     }
 }

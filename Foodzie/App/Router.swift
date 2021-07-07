@@ -10,17 +10,30 @@ import Swinject
 import UIKit
 
 class Router {
-    let window: UIWindow
-    let resolver: Resolver
+    private let window: UIWindow
+    private let resolver: Resolver
     
     init(window: UIWindow, resolver: Resolver) {
         self.window = window
         self.resolver = resolver
     }
     
-    func start() {
-        window.rootViewController = resolver.resolve(MapViewController.self)!
+    func navigateToRoot() {
+        guard let root = window.rootViewController else {
+            resetStack()
+            return
+        }
+        root.dismiss(animated: true, completion: nil)
+    }
+    
+    private func resetStack() {
+        let viewModel = resolver.resolve(MapViewModelProtocol.self, argument: self)!
+        window.rootViewController = resolver.resolve(MapViewController.self, argument: viewModel)!
         window.makeKeyAndVisible()
+    }
+    
+    func navigate(to place: Place) {
+        print("\(#function) \(place)")
     }
     
 }

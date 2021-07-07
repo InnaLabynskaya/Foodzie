@@ -9,12 +9,14 @@ import Foundation
 
 protocol MapViewModelProtocol: AnyObject {
     func update(location: Location)
+    func select(place: Place)
     var onPlacesUpdate: Callback<[Place]>? {get set}
 }
 
 class MapViewModel: MapViewModelProtocol {
     
     let api: APIServiceProtocol
+    let router: Router
     private var request: Cancelable? {
         willSet {
             request?.cancel()
@@ -31,8 +33,9 @@ class MapViewModel: MapViewModelProtocol {
         }
     }
     
-    init(api: APIServiceProtocol) {
+    init(api: APIServiceProtocol, router: Router) {
         self.api = api
+        self.router = router
         update(location: Location(long: 151.20, lat: -33.86))
     }
     
@@ -42,5 +45,9 @@ class MapViewModel: MapViewModelProtocol {
                               maxLocations: 20) { [weak self] (result) in
             _ = result.map {self?.places = $0}
         }
+    }
+    
+    func select(place: Place) {
+        router.navigate(to: place)
     }
 }

@@ -11,14 +11,14 @@ import Swinject
 final class MapAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(MapViewModelProtocol.self) { r in
-            return MapViewModel(api: r.resolve(APIServiceProtocol.self)!)
+        container.register(MapViewModelProtocol.self) { (r, router: Router) in
+            return MapViewModel(api: r.resolve(APIServiceProtocol.self)!, router: router)
         }
         
-        container.register(MapViewController.self) { r in
-            return MapViewController.instantiate()
-        }.initCompleted { (r, vc) in
-            vc.viewModel = r.resolve(MapViewModelProtocol.self)!
+        container.register(MapViewController.self) { (r, viewModel: MapViewModelProtocol) in
+            let vc = MapViewController.instantiate()
+            vc.viewModel = viewModel
+            return vc
         }
     }
 }

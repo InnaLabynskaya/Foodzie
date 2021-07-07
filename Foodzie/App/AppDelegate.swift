@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupGoogleMaps()
         router = Router(window: UIWindow(frame: UIScreen.main.bounds),
                         resolver: assembler.resolver)
-        router.start()
+        router.navigateToRoot()
         return true
     }
 

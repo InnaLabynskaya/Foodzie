@@ -15,6 +15,7 @@ final class MapAssembly: Assembly {
             return MapViewModel(api: r.resolve(APIServiceProtocol.self)!,
                                 locationService: r.resolve(LocationServiceProtocol.self)!,
                                 storage: r.resolve(Storage<[Place]>.self)!,
+                                lastLocationStorage: r.resolve(Storage<Location>.self)!,
                                 router: router)
         }
         

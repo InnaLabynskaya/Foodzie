@@ -22,6 +22,7 @@ class MapViewModel: MapViewModelProtocol {
     private let router: Router
     private let locationService: LocationServiceProtocol
     private let storage: Storage<[Place]>
+    private let lastLocationStorage: Storage<Location>
     
     static let NearEnough: Double = 2_000//2 km
     
@@ -54,12 +55,14 @@ class MapViewModel: MapViewModelProtocol {
     init(api: APIServiceProtocol,
          locationService: LocationServiceProtocol,
          storage: Storage<[Place]>,
+         lastLocationStorage: Storage<Location>,
          router: Router) {
         self.api = api
         self.router = router
         self.locationService = locationService
         self.storage = storage
-        self.deviceLocation = locationService.lastValidLocation.coordinates
+        self.lastLocationStorage = lastLocationStorage
+        self.deviceLocation = lastLocationStorage.fetch() ?? locationService.lastValidLocation.coordinates
         setup()
     }
     
@@ -68,15 +71,22 @@ class MapViewModel: MapViewModelProtocol {
     }
     
     private func setup() {
-        guard let stored = storage.fetch(),
-              stored.allSatisfy(self.placeIsNearEnough) else {
+        if let stored = storage.fetch(), stored.allSatisfy(self.placeIsNearEnough) {
+            places = stored
+        } else {
             update(location: deviceLocation)
-            return
         }
-        self.places = stored
+        locationService.startLocationUpdates { [weak self] (result) in
+            guard case .success(location: let location) = result else {
+                return
+            }
+            self?.deviceLocation = location
+            self?.locationService.stopLocationUpdates()
+        }
     }
     
     func update(location: Location) {
+        lastLocationStorage.store(location)
         request = api.fetchSearchPlaces(location: location,
                               categories: "Food",
                               maxLocations: 20) { [weak self] (result) in

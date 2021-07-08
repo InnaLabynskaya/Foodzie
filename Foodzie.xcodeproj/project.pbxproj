@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0BCBDD269794CE00E61F78 /* CodableStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0BCBDC269794CE00E61F78 /* CodableStorageFactory.swift */; };
 		9D0C7B76269618FD00D2EB92 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B75269618FD00D2EB92 /* PlaceViewController.swift */; };
 		9D0C7B7A2696193200D2EB92 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B792696193200D2EB92 /* PlaceViewModel.swift */; };
 		9D0C7B7E26961A1700D2EB92 /* PlaceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C7B7D26961A1700D2EB92 /* PlaceAssembly.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		5AAEC3AF0C5FDF2145C8A6AD /* Pods_Foodzie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodzie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0BCBDC269794CE00E61F78 /* CodableStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStorageFactory.swift; sourceTree = "<group>"; };
 		9D0C7B75269618FD00D2EB92 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		9D0C7B792696193200D2EB92 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		9D0C7B7D26961A1700D2EB92 /* PlaceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAssembly.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				9D429695269609FF0063E6EA /* Callbacks.swift */,
 				9D7235E02696337900390FEA /* ReuseIdentifiable.swift */,
 				9D72367B269762D300390FEA /* Storage.swift */,
+				9D0BCBDC269794CE00E61F78 /* CodableStorageFactory.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */,
 				9D0C7B8926961DCB00D2EB92 /* ListViewModel.swift in Sources */,
 				9D723605269639E100390FEA /* MOPlace+Mapping.swift in Sources */,
+				9D0BCBDD269794CE00E61F78 /* CodableStorageFactory.swift in Sources */,
 				9DCCEEFA2695CD1E00BCCF3D /* APIService.swift in Sources */,
 				9D72367F2697630000390FEA /* CoreDataStorageFactory.swift in Sources */,
 				9D72361E2697489200390FEA /* LocationService.swift in Sources */,
@@ -550,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -605,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -36,13 +36,17 @@ final class ServiceAssembly: Assembly {
                 }
             })
             return container
-        }
+        }.inObjectScope(.container)
         
         container.register(Storage<[Place]>.self) { r in
             CoreDataStorageFactory<MOPlace, Place>
                 .default(in: r.resolve(NSPersistentContainer.self)!,
                          compactMap: Place.init(with: ),
                          fill: { $0.fill(with: $1) })
+        }
+        
+        container.register(Storage<Location>.self) { r in
+            CodableStorageFactory.persistent()
         }
     }
 }

@@ -13,6 +13,8 @@ class MapViewController: UIViewController {
     var mapView: GMSMapView!
     var viewModel: MapViewModelProtocol!
     
+    private var isLocationUpdatesEnabled: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
@@ -24,7 +26,7 @@ class MapViewController: UIViewController {
     }
     
     private func setupMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 14.0)
+        let camera = GMSCameraPosition.camera(withLatitude: viewModel.deviceLocation.lat, longitude: viewModel.deviceLocation.long, zoom: 14.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mapView.delegate = self
         self.mapView = mapView
@@ -35,6 +37,11 @@ class MapViewController: UIViewController {
     private func bind() {
         viewModel.onPlacesUpdate = { [weak self] places in
             self?.updateMarkers(places: places)
+        }
+        viewModel.onDeviceLocationUpdate = { [weak self] location in
+            let loc = CLLocationCoordinate2D(latitude: location.lat, longitude: location.long)
+            let update = GMSCameraUpdate.setTarget(loc)
+            self?.mapView.moveCamera(update)
         }
     }
     
@@ -53,6 +60,10 @@ class MapViewController: UIViewController {
 
 extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        guard isLocationUpdatesEnabled else {
+            isLocationUpdatesEnabled = true
+            return
+        }
         viewModel.update(location: Location(long: position.target.longitude, lat: position.target.latitude))
     }
     

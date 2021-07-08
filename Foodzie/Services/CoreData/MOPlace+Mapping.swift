@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension MOPlace {
-    func populate(with place: Place) {
+    func fill(with place: Place) {
         longitude = place.location.long
         latitude = place.location.lat
         type = place.type
@@ -22,13 +22,21 @@ extension MOPlace {
 }
 
 extension Place {
-    init(mo: MOPlace) {
-        self.init(location: Location(long: mo.longitude, lat: mo.longitude),
-                  type: mo.type!,
-                  name: mo.placeName!,
-                  address: mo.placeAddr!,
-                  city: mo.city!,
-                  region: mo.region!,
-                  country: mo.country!)
+    init?(with mo: MOPlace) {
+        guard let type = mo.type,
+              let placeName = mo.placeName,
+              let placeAddr = mo.placeAddr,
+              let city = mo.city,
+              let region = mo.region,
+              let country = mo.country else {
+            return nil
+        }
+        self.init(location: Location(long: mo.longitude, lat: mo.latitude),
+                  type: type,
+                  name: placeName,
+                  address: placeAddr,
+                  city: city,
+                  region: region,
+                  country: country)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Swinject
+import CoreData
 
 final class ServiceAssembly: Assembly {
     
@@ -26,5 +27,22 @@ final class ServiceAssembly: Assembly {
         container.register(LocationServiceProtocol.self) { r in
             return LocationService(permissionHandler: r.resolve(LocationPermissionHandlerProtocol.self)!)
         }.inObjectScope(.container)
+        
+        container.register(NSPersistentContainer.self) { r in
+            let container = NSPersistentContainer(name: "Foodzie")
+            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+                if let error = error {
+                    fatalError("Unresolved error \(error)")
+                }
+            })
+            return container
+        }
+        
+        container.register(Storage<[Place]>.self) { r in
+            CoreDataStorageFactory<MOPlace, Place>
+                .default(in: r.resolve(NSPersistentContainer.self)!,
+                         compactMap: Place.init(with: ),
+                         fill: { $0.fill(with: $1) })
+        }
     }
 }

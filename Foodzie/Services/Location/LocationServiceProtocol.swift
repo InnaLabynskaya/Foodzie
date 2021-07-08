@@ -6,7 +6,7 @@
 //
 
 import Foundation
-typealias LocationCoordinate = (lat: Double, lng: Double)
+typealias LocationCoordinate = Location
 typealias LocationServiceAction = (LocationServiceResult) -> ()
 
 enum LocationServiceError: Error {
@@ -41,4 +41,5 @@ protocol LocationServiceProtocol {
     func locationAuthorized() -> Bool
     func startLocationUpdates(_ completion: LocationServiceAction?)
     func stopLocationUpdates()
+    func distance(pointA: LocationCoordinate, pointB: LocationCoordinate) -> Double
 }

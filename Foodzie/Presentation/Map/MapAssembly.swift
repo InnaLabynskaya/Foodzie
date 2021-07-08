@@ -14,6 +14,7 @@ final class MapAssembly: Assembly {
         container.register(MapViewModelProtocol.self) { (r, router: Router) in
             return MapViewModel(api: r.resolve(APIServiceProtocol.self)!,
                                 locationService: r.resolve(LocationServiceProtocol.self)!,
+                                storage: r.resolve(Storage<[Place]>.self)!,
                                 router: router)
         }
         

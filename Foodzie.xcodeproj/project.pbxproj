@@ -29,6 +29,8 @@
 		9D72361A2697486900390FEA /* LocationPermissionHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7236192697486900390FEA /* LocationPermissionHandlerProtocol.swift */; };
 		9D72361E2697489200390FEA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72361D2697489200390FEA /* LocationService.swift */; };
 		9D723622269748A400390FEA /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D723621269748A400390FEA /* LocationServiceProtocol.swift */; };
+		9D72367C269762D300390FEA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72367B269762D300390FEA /* Storage.swift */; };
+		9D72367F2697630000390FEA /* CoreDataStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72367E2697630000390FEA /* CoreDataStorageFactory.swift */; };
 		9D8A4C3F2694D3D400C944D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */; };
 		9D8A4C492694D3D400C944D1 /* Foodzie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A4C472694D3D400C944D1 /* Foodzie.xcdatamodeld */; };
 		9D8A4C4B2694D3D600C944D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A4C4A2694D3D600C944D1 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		9D7236192697486900390FEA /* LocationPermissionHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionHandlerProtocol.swift; sourceTree = "<group>"; };
 		9D72361D2697489200390FEA /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9D723621269748A400390FEA /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
+		9D72367B269762D300390FEA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		9D72367E2697630000390FEA /* CoreDataStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageFactory.swift; sourceTree = "<group>"; };
 		9D8A4C3B2694D3D400C944D1 /* Foodzie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodzie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8A4C482694D3D400C944D1 /* Foodzie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foodzie.xcdatamodel; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				9DCCEF012695CEEB00BCCF3D /* Errors.swift */,
 				9D429695269609FF0063E6EA /* Callbacks.swift */,
 				9D7235E02696337900390FEA /* ReuseIdentifiable.swift */,
+				9D72367B269762D300390FEA /* Storage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 		9D7235E82696361300390FEA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				9D72367E2697630000390FEA /* CoreDataStorageFactory.swift */,
 				9D7235E92696362500390FEA /* CoreDataContainer.swift */,
 				9D723604269639E100390FEA /* MOPlace+Mapping.swift */,
 			);
@@ -466,12 +472,14 @@
 				9D0C7B8926961DCB00D2EB92 /* ListViewModel.swift in Sources */,
 				9D723605269639E100390FEA /* MOPlace+Mapping.swift in Sources */,
 				9DCCEEFA2695CD1E00BCCF3D /* APIService.swift in Sources */,
+				9D72367F2697630000390FEA /* CoreDataStorageFactory.swift in Sources */,
 				9D72361E2697489200390FEA /* LocationService.swift in Sources */,
 				9DCCEF092695D9F000BCCF3D /* ServiceAssembly.swift in Sources */,
 				9D0C7B9326962BCD00D2EB92 /* ListAssembly.swift in Sources */,
 				9DCCEF052695D94C00BCCF3D /* NetworkService.swift in Sources */,
 				9D7235E62696350000390FEA /* Array.swift in Sources */,
 				9D0C7B8D26961E0700D2EB92 /* ListViewController.swift in Sources */,
+				9D72367C269762D300390FEA /* Storage.swift in Sources */,
 				9D8A4C3F2694D3D400C944D1 /* AppDelegate.swift in Sources */,
 				9D0C7B9626962D6E00D2EB92 /* Button.swift in Sources */,
 			);

@@ -34,7 +34,6 @@ class ArcgisAPIService: APIServiceProtocol {
             URLQueryItem(name: "category", value: categories),
             URLQueryItem(name: "maxLocations", value: "\(maxLocations)"),
             URLQueryItem(name: "outFields", value: "PlaceName,Type,Place_Addr,City,Region,Country"),
-            URLQueryItem(name: "forStorage", value: "false"),
             URLQueryItem(name: "location", value: "\(location.long),\(location.lat)"),
         ]
         

@@ -27,13 +27,13 @@ class LocationService: NSObject {
 // MARK: - Private methods
 private extension LocationService {
     struct C {
-        static let kyivLocation: LocationCoordinate = (50.4547, 30.5238)
+        static let kyivLocation: LocationCoordinate = LocationCoordinate(long: 30.5238, lat: 50.4547)
     }
     
     func notifyAboutSuccess(withLocation location: CLLocation) {
         if let handler = locationActionHandler {
             let coordinate = location.coordinate
-            let locationCoordinate = (coordinate.latitude, coordinate.longitude)
+            let locationCoordinate = LocationCoordinate(long: coordinate.longitude, lat: coordinate.latitude)
             let result: LocationServiceResult = .success(location: locationCoordinate)
             handler(result)
         }
@@ -108,12 +108,19 @@ extension LocationService: CLLocationManagerDelegate {
             return
         }
 
-        lastLocation = .real((location.coordinate.latitude, location.coordinate.longitude))
+        lastLocation = .real(LocationCoordinate(long: location.coordinate.longitude,
+                                                lat:  location.coordinate.latitude))
         notifyAboutSuccess(withLocation: location)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         notifyAboutFailure(withError: .undefined)
+        
+    }
+    
+    func distance(pointA: LocationCoordinate, pointB: LocationCoordinate) -> Double {
+        return CLLocation(latitude: pointA.lat, longitude: pointA.long)
+            .distance(from: CLLocation(latitude: pointB.lat, longitude: pointB.long))
     }
     
 }

@@ -91,8 +91,8 @@ private extension Place {
     init(response: PlaceResponse) {
         self.init(location: Location(long: response.location.x, lat: response.location.y),
                   type: response.attributes.type,
-                  placeName: response.attributes.placeName,
-                  placeAddr: response.attributes.placeAddr,
+                  name: response.attributes.placeName,
+                  address: response.attributes.placeAddr,
                   city: response.attributes.city,
                   region: response.attributes.region,
                   country: response.attributes.country)

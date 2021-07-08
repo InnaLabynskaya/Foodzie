@@ -12,7 +12,7 @@ class PlaceCell: UITableViewCell, ReuseIdentifiable {
     @IBOutlet weak var titleLabel: UILabel!
 
     func update(with place: Place) {
-        titleLabel.text = place.placeName
+        titleLabel.text = place.name
     }
     
     override func prepareForReuse() {

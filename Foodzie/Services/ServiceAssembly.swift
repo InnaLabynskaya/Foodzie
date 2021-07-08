@@ -14,8 +14,17 @@ final class ServiceAssembly: Assembly {
         container.register(NetworkServiceProtocol.self) { r in
             return URLSession(configuration: URLSessionConfiguration.default)
         }.inObjectScope(.container)
+        
         container.register(APIServiceProtocol.self) { r in
             return ArcgisAPIService(network: r.resolve(NetworkServiceProtocol.self)!)
+        }.inObjectScope(.container)
+        
+        container.register(LocationPermissionHandlerProtocol.self) { r in
+            return LocationPermissionHandler()
+        }.inObjectScope(.container)
+
+        container.register(LocationServiceProtocol.self) { r in
+            return LocationService(permissionHandler: r.resolve(LocationPermissionHandlerProtocol.self)!)
         }.inObjectScope(.container)
     }
 }

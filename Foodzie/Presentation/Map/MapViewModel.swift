@@ -16,8 +16,10 @@ protocol MapViewModelProtocol: AnyObject {
 
 class MapViewModel: MapViewModelProtocol {
     
-    let api: APIServiceProtocol
-    let router: Router
+    private let api: APIServiceProtocol
+    private let router: Router
+    private let locationService: LocationServiceProtocol
+    
     private var request: Cancelable? {
         willSet {
             request?.cancel()
@@ -34,9 +36,12 @@ class MapViewModel: MapViewModelProtocol {
         }
     }
     
-    init(api: APIServiceProtocol, router: Router) {
+    init(api: APIServiceProtocol,
+         locationService: LocationServiceProtocol,
+         router: Router) {
         self.api = api
         self.router = router
+        self.locationService = locationService
         update(location: Location(long: 151.20, lat: -33.86))
     }
     

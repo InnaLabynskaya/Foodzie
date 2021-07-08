@@ -11,6 +11,8 @@ import UIKit
 class PlaceViewController: UIViewController {
     var viewModel: PlaceViewModelProtocol!
     @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var placeType: UILabel!
+    @IBOutlet weak var placeAddress: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class PlaceViewController: UIViewController {
     }
     
     private func update(place: Place) {
-        placeName.text = place.placeName
+        placeName.text = place.name
+        placeType.text = place.type
+        placeAddress.text = place.address
     }
 }

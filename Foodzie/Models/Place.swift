@@ -15,8 +15,8 @@ struct Location: Codable {
 struct Place: Codable {
     var location: Location
     var type: String
-    var placeName: String
-    var placeAddr: String
+    var name: String
+    var address: String
     var city: String
     var region: String
     var country: String

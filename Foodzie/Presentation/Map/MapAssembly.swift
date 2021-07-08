@@ -12,7 +12,9 @@ final class MapAssembly: Assembly {
     
     func assemble(container: Container) {
         container.register(MapViewModelProtocol.self) { (r, router: Router) in
-            return MapViewModel(api: r.resolve(APIServiceProtocol.self)!, router: router)
+            return MapViewModel(api: r.resolve(APIServiceProtocol.self)!,
+                                locationService: r.resolve(LocationServiceProtocol.self)!,
+                                router: router)
         }
         
         container.register(MapViewController.self) { (r, viewModel: MapViewModelProtocol) in

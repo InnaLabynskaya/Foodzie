@@ -11,7 +11,7 @@ import Swinject
 final class MapAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(MapViewModelProtocol.self) { (r, router: Router) in
+        container.register(MapViewModel.self) { (r, router: Router) in
             return MapViewModel(api: r.resolve(APIServiceProtocol.self)!,
                                 locationService: r.resolve(LocationServiceProtocol.self)!,
                                 storage: r.resolve(Storage<[Place]>.self)!,
@@ -19,9 +19,10 @@ final class MapAssembly: Assembly {
                                 router: router)
         }
         
-        container.register(MapViewController.self) { (r, viewModel: MapViewModelProtocol) in
+        container.register(MapViewController.self) { (r, viewModel: MapViewModel) in
             let vc = MapViewController.instantiate()
-            vc.viewModel = viewModel
+            vc.viewModelInput = viewModel
+            vc.viewModelOutput = viewModel
             return vc
         }
     }

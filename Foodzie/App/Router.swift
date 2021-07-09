@@ -27,7 +27,7 @@ class Router {
     }
     
     private func resetStack() {
-        let viewModel = resolver.resolve(MapViewModelProtocol.self, argument: self)!
+        let viewModel = resolver.resolve(MapViewModel.self, argument: self)!
         let viewController = resolver.resolve(MapViewController.self, argument: viewModel)!
         window.rootViewController = viewController
         window.makeKeyAndVisible()

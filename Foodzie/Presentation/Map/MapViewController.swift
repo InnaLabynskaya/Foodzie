@@ -11,7 +11,8 @@ import GoogleMaps
 
 class MapViewController: UIViewController {
     var mapView: GMSMapView!
-    var viewModel: MapViewModelProtocol!
+    var viewModelInput: MapViewModelInputProtocol!
+    var viewModelOutput: MapViewModelOutputProtocol!
     
     private var isLocationUpdatesEnabled: Bool = false
     
@@ -25,7 +26,7 @@ class MapViewController: UIViewController {
 // MARK: - Actions
 extension MapViewController {
     @IBAction func onListTap(_ sender: Any) {
-        viewModel.showList()
+        viewModelInput.showList()
     }
 }
 
@@ -36,14 +37,14 @@ extension MapViewController: GMSMapViewDelegate {
             isLocationUpdatesEnabled = true
             return
         }
-        viewModel.update(location: Location(long: position.target.longitude, lat: position.target.latitude))
+        viewModelInput.update(location: Location(long: position.target.longitude, lat: position.target.latitude))
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         guard let place = marker.userData as? Place else {
             return false
         }
-        viewModel.select(place: place)
+        viewModelInput.select(place: place)
         return true
     }
 }
@@ -51,7 +52,7 @@ extension MapViewController: GMSMapViewDelegate {
 // MARK: - Private
 extension MapViewController {
     private func setupMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: viewModel.deviceLocation.lat, longitude: viewModel.deviceLocation.long, zoom: Constants.mapZoom)
+        let camera = GMSCameraPosition.camera(withLatitude: viewModelOutput.deviceLocation.lat, longitude: viewModelOutput.deviceLocation.long, zoom: Constants.mapZoom)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mapView.delegate = self
         self.mapView = mapView
@@ -60,10 +61,10 @@ extension MapViewController {
     }
     
     private func bind() {
-        viewModel.onPlacesUpdate = { [weak self] places in
+        viewModelOutput.onPlacesUpdate = { [weak self] places in
             self?.updateMarkers(places: places)
         }
-        viewModel.onDeviceLocationUpdate = { [weak self] location in
+        viewModelOutput.onDeviceLocationUpdate = { [weak self] location in
             let loc = CLLocationCoordinate2D(latitude: location.lat, longitude: location.long)
             let update = GMSCameraUpdate.setTarget(loc)
             self?.mapView.moveCamera(update)

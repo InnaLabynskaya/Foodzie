@@ -10,7 +10,10 @@ import UIKit
 
 class ListViewController: UIViewController {
     var viewModel: ListViewModelProtocol!
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     var places: [Place] = [] {
         didSet {
             tableView.reloadData()
@@ -19,6 +22,7 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel?.text = "Places near you"
         configureTableView()
         bind()
     }

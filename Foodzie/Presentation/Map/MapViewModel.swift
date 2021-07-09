@@ -7,16 +7,19 @@
 
 import Foundation
 
-protocol MapViewModelProtocol: AnyObject {
+protocol MapViewModelInputProtocol: AnyObject {
     func update(location: Location)
     func select(place: Place)
     func showList()
+}
+
+protocol MapViewModelOutputProtocol: AnyObject {
     var deviceLocation: Location {get}
     var onPlacesUpdate: Callback<[Place]>? {get set}
     var onDeviceLocationUpdate: Callback<Location>? {get set}
 }
 
-class MapViewModel: MapViewModelProtocol {
+class MapViewModel: MapViewModelOutputProtocol, MapViewModelInputProtocol {
     
     private let api: APIServiceProtocol
     private let router: Router

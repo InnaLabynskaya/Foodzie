@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController" customModule="Foodzie" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="w7C-aX-ERC" id="BsA-Ea-146"/>
+                <outlet property="titleLabel" destination="hiW-Fn-mw3" id="F7i-fe-UeI"/>
                 <outlet property="view" destination="iN0-l3-epB" id="0uQ-ME-jvm"/>
             </connections>
         </placeholder>
@@ -19,8 +21,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiW-Fn-mw3">
+                    <rect key="frame" x="20" y="64" width="340" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7C-aX-ERC">
-                    <rect key="frame" x="0.0" y="96" width="414" height="766"/>
+                    <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="BBr-10-805"/>
                         <outlet property="delegate" destination="-1" id="b1f-XT-W2h"/>
@@ -41,12 +49,15 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="w7C-aX-ERC" firstAttribute="top" secondItem="LRo-my-k0b" secondAttribute="bottom" constant="8" symbolic="YES" id="7Mx-M7-E75"/>
+                <constraint firstItem="w7C-aX-ERC" firstAttribute="top" secondItem="hiW-Fn-mw3" secondAttribute="bottom" constant="20" id="Ast-Lo-hit"/>
+                <constraint firstItem="hiW-Fn-mw3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="M7x-M2-9S2"/>
                 <constraint firstItem="w7C-aX-ERC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UF8-Yb-qiQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="w7C-aX-ERC" secondAttribute="trailing" id="a3A-XQ-VKn"/>
+                <constraint firstItem="hiW-Fn-mw3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fbx-HH-dh3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LRo-my-k0b" secondAttribute="trailing" id="jUh-zo-JPs"/>
                 <constraint firstItem="w7C-aX-ERC" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="oaM-ou-Yd6"/>
                 <constraint firstItem="LRo-my-k0b" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qOf-aj-Ooy"/>
+                <constraint firstItem="LRo-my-k0b" firstAttribute="leading" secondItem="hiW-Fn-mw3" secondAttribute="trailing" constant="10" id="skK-kW-3D1"/>
             </constraints>
             <point key="canvasLocation" x="-39.130434782608695" y="73.660714285714278"/>
         </view>

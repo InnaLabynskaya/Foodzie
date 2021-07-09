@@ -13,6 +13,7 @@
 * Fix checks for POIs in current view - currently imlemented by naive distance measurement (<2km)
 * POIs fetching & saving should be moved to separate service e.g. PlaceProvider
 * UI/UX design
+* Unit Tests
 
 # How to build
 

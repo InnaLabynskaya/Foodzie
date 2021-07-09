@@ -260,9 +260,9 @@
 		9D8A4C6B2694E9FF00C944D1 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				9D8A4C5D2694E7B800C944D1 /* Router.swift */,
-				9DCCEEE12694F4AC00BCCF3D /* AppAssembler.swift */,
 				9D8A4C3E2694D3D400C944D1 /* AppDelegate.swift */,
+				9DCCEEE12694F4AC00BCCF3D /* AppAssembler.swift */,
+				9D8A4C5D2694E7B800C944D1 /* Router.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -627,7 +627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBF475F657;
-				INFOPLIST_FILE = Foodzie/Info.plist;
+				INFOPLIST_FILE = Foodzie/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,7 +635,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Inna.Foodzie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -647,7 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBF475F657;
-				INFOPLIST_FILE = Foodzie/Info.plist;
+				INFOPLIST_FILE = Foodzie/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,7 +655,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Inna.Foodzie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

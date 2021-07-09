@@ -20,13 +20,38 @@ class MapViewController: UIViewController {
         setupMap()
         bind()
     }
-    
+}
+
+// MARK: - Actions
+extension MapViewController {
     @IBAction func onListTap(_ sender: Any) {
         viewModel.showList()
     }
+}
+
+// MARK: - GMSMapViewDelegate
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        guard isLocationUpdatesEnabled else {
+            isLocationUpdatesEnabled = true
+            return
+        }
+        viewModel.update(location: Location(long: position.target.longitude, lat: position.target.latitude))
+    }
     
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        guard let place = marker.userData as? Place else {
+            return false
+        }
+        viewModel.select(place: place)
+        return true
+    }
+}
+
+// MARK: - Private
+extension MapViewController {
     private func setupMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: viewModel.deviceLocation.lat, longitude: viewModel.deviceLocation.long, zoom: 14.0)
+        let camera = GMSCameraPosition.camera(withLatitude: viewModel.deviceLocation.lat, longitude: viewModel.deviceLocation.long, zoom: Constants.mapZoom)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mapView.delegate = self
         self.mapView = mapView
@@ -45,7 +70,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    func updateMarkers(places: [Place]) {
+    private func updateMarkers(places: [Place]) {
         mapView.clear()
         let markers = places.map { place -> GMSMarker in
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: place.location.lat, longitude: place.location.long))
@@ -58,20 +83,9 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        guard isLocationUpdatesEnabled else {
-            isLocationUpdatesEnabled = true
-            return
-        }
-        viewModel.update(location: Location(long: position.target.longitude, lat: position.target.latitude))
-    }
-    
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        guard let place = marker.userData as? Place else {
-            return false
-        }
-        viewModel.select(place: place)
-        return true
+// MARK: - Constants
+extension MapViewController {
+    enum Constants {
+        static let mapZoom: Float = 14.0
     }
 }

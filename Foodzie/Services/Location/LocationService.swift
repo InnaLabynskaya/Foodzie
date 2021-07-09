@@ -12,7 +12,7 @@ class LocationService: NSObject {
     
     private let locationManager = CLLocationManager()
     private let permissionHandler: LocationPermissionHandlerProtocol
-    private var locationActionHandler: LocationServiceAction?
+    private var locationActionHandler: Callback<Result<LocationCoordinate, LocationServiceError>>?
     private var accessRequested: Bool = false
     private var lastLocation: LocationType = .default(C.kyivLocation)
     
@@ -34,7 +34,7 @@ private extension LocationService {
         if let handler = locationActionHandler {
             let coordinate = location.coordinate
             let locationCoordinate = LocationCoordinate(long: coordinate.longitude, lat: coordinate.latitude)
-            let result: LocationServiceResult = .success(location: locationCoordinate)
+            let result: Result<LocationCoordinate, LocationServiceError> = .success(locationCoordinate)
             handler(result)
         }
     }
@@ -42,7 +42,7 @@ private extension LocationService {
     func notifyAboutFailure(withError error: LocationServiceError? = nil) {
         if let handler = locationActionHandler,
             let error = error ?? errorFromAuthorizationStatus() {
-            handler(LocationServiceResult.failure(error: error))
+            handler(Result.failure(error))
         }
     }
     
@@ -62,7 +62,7 @@ extension LocationService: LocationServiceProtocol {
         return permissionHandler.isLocationAuthorized
     }
     
-    func startLocationUpdates(_ completion: LocationServiceAction?) {
+    func startLocationUpdates(_ completion: Callback<Result<LocationCoordinate, LocationServiceError>>?) {
         locationActionHandler = completion
 
         if permissionHandler.needAccessToLocation {
@@ -71,7 +71,7 @@ extension LocationService: LocationServiceProtocol {
             case .notDetermined:
                 locationManager.requestAlwaysAuthorization()
             case .denied, .restricted:
-                completion?(.failure(error: .undefined))
+                completion?(.failure(.undefined))
             default: break
             }
         } else if permissionHandler.isLocationEnabledAndAuthorized {

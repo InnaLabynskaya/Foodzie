@@ -10,8 +10,6 @@ import CoreLocation
 
 protocol APIServiceProtocol {
     func fetchSearchPlaces(location: Location,
-                           categories: String,
-                           maxLocations: Int,
                            completion: @escaping (Result<[Place], Error>) -> Void) -> Cancelable
 }
 
@@ -25,14 +23,12 @@ class ArcgisAPIService: APIServiceProtocol {
     let root = URL(string: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/")!
 
     func fetchSearchPlaces(location: Location,
-                           categories: String,
-                           maxLocations: Int,
                            completion: @escaping (Result<[Place], Error>) -> Void) -> Cancelable {
         var components = URLComponents(url: root.appendingPathComponent("findAddressCandidates"), resolvingAgainstBaseURL: false)
         components?.queryItems = [
             URLQueryItem(name: "f", value: "json"),
-            URLQueryItem(name: "category", value: categories),
-            URLQueryItem(name: "maxLocations", value: "\(maxLocations)"),
+            URLQueryItem(name: "category", value: "Food"),
+            URLQueryItem(name: "maxLocations", value: "\(20)"),
             URLQueryItem(name: "outFields", value: "PlaceName,Type,Place_Addr,City,Region,Country"),
             URLQueryItem(name: "location", value: "\(location.long),\(location.lat)"),
         ]

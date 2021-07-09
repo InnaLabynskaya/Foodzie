@@ -7,17 +7,11 @@
 
 import Foundation
 typealias LocationCoordinate = Location
-typealias LocationServiceAction = (LocationServiceResult) -> ()
 
 enum LocationServiceError: Error {
     case undefined
     case restricted
     case denied
-}
-
-enum LocationServiceResult {
-    case success(location: LocationCoordinate)
-    case failure(error: LocationServiceError)
 }
 
 /// Default location used if real location detection restricted by user. default case contains coordinated of Kyiv city.
@@ -39,7 +33,7 @@ protocol LocationServiceProtocol {
     var lastValidLocation: LocationType { get }
     
     func locationAuthorized() -> Bool
-    func startLocationUpdates(_ completion: LocationServiceAction?)
+    func startLocationUpdates(_ completion: Callback<Result<LocationCoordinate, LocationServiceError>>?)
     func stopLocationUpdates()
     func distance(pointA: LocationCoordinate, pointB: LocationCoordinate) -> Double
 }

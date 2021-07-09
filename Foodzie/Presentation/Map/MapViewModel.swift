@@ -87,9 +87,7 @@ class MapViewModel: MapViewModelProtocol {
     
     func update(location: Location) {
         lastLocationStorage.store(location)
-        request = api.fetchSearchPlaces(location: location,
-                              categories: "Food",
-                              maxLocations: 20) { [weak self] (result) in
+        request = api.fetchSearchPlaces(location: location) { [weak self] (result) in
             guard case .success(let places) = result, let self = self else {
                 return
             }
